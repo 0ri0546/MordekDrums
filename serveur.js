@@ -22,9 +22,9 @@ app.use(session({
 //--------------------------interface admin------------------------------
 app.get('/admin', (req, res) => {
   if (req.session.loggedIn) {
-    return res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+    return res.sendFile(path.join(__dirname, 'admin', 'admin.html'));
   }
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+  res.sendFile(path.join(__dirname, 'admin', 'login.html'));
 });
 
 app.post('/login', (req, res) => {
