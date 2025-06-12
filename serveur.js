@@ -1,3 +1,7 @@
+require('dotenv').config();
+const session = require('express-session');
+const bodyParser = require('body-parser');
+
 const express = require('express');
 const fetch = require('node-fetch');
 const { XMLParser } = require('fast-xml-parser');
@@ -7,6 +11,38 @@ const app = express();
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
+
+//--------------------------interface admin------------------------------
+app.get('/admin', (req, res) => {
+  if (req.session.loggedIn) {
+    return res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+  }
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+
+app.post('/login', (req, res) => {
+  const { password } = req.body;
+  if (password === process.env.ADMIN_PASSWORD) {
+    req.session.loggedIn = true;
+    res.redirect('/admin');
+  } else {
+    res.send('Mot de passe incorrect. <a href="/admin">Réessayer</a>');
+  }
+});
+
+app.get('/logout', (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/admin');
+  });
+});
+//--------------------------interface admin------------------------------
 
 const parser = new XMLParser();
 const cache = {}; // { channelId: { videoId: 'abc', lastFetched: Date } }
