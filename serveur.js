@@ -42,6 +42,8 @@ app.get('/logout', (req, res) => {
     res.redirect('/admin');
   });
 });
+
+app.use(express.static(path.join(__dirname, 'admin')));
 //--------------------------interface admin------------------------------
 
 const parser = new XMLParser();
