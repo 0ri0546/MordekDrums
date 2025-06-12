@@ -44,6 +44,24 @@ app.get('/logout', (req, res) => {
 });
 
 app.use(express.static(path.join(__dirname, 'admin')));
+
+//---apreçu images dispo--
+const fs = require('fs');
+
+app.get('/list-images', (req, res) => {
+  const assetsPath = path.join(__dirname, 'public', 'assets');
+  fs.readdir(assetsPath, (err, files) => {
+    if (err) {
+      console.error('Erreur de lecture des fichiers :', err);
+      return res.status(500).json({ error: 'Erreur lecture des images' });
+    }
+
+    // Filtrer uniquement les images
+    const imageFiles = files.filter(file => /\.(png|jpe?g|webp|gif|svg)$/i.test(file));
+    res.json(imageFiles);
+  });
+});
+//---apreçu images dispo--
 //--------------------------interface admin------------------------------
 
 const parser = new XMLParser();
@@ -118,4 +136,73 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
   console.log(`✅ Serveur lancé sur http://localhost:${port}`);
+});
+
+
+//--------------------Modification .json-----------------------
+
+app.get('/admin/json/:section', (req, res) => {
+  if (!req.session.loggedIn) return res.status(401).send('Non autorisé');
+
+  const section = req.params.section;
+  const filePath = path.join(__dirname, 'public', 'content', section, `${section}.json`);
+
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).send('Fichier non trouvé');
+  }
+
+  const content = fs.readFileSync(filePath, 'utf8');
+  res.type('application/json').send(content);
+});
+
+app.post('/admin/json/:section', express.json(), (req, res) => {
+  if (!req.session.loggedIn) return res.status(401).send('Non autorisé');
+
+  const section = req.params.section;
+  const filePath = path.join(__dirname, 'public', 'content', section, `${section}.json`);
+
+  const now = new Date();
+
+  const day = String(now.getDate()).padStart(2, '0');
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const year = now.getFullYear();
+
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+
+  const formattedDate = `${day}/${month}/${year} à ${hours}:${minutes}:${seconds}`;
+
+  try {
+    const jsonData = JSON.stringify(req.body, null, 2);
+    fs.writeFileSync(filePath, jsonData);
+    res.send('Fichier mis à jour à ' + formattedDate);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erreur d\'écriture du fichier');
+  }
+});
+
+//-----import image---------
+const multer = require('multer');
+
+// Dossier de destination
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, 'public', 'assets'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
+
+app.post('/upload-image', upload.single('image'), (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.status(403).send('Non autorisé');
+  }
+
+  const imageUrl = `/uploads/${req.file.filename}`;
+  res.send(`✅ Image uploadée avec succès : <a href="${imageUrl}">${imageUrl}</a>`);
 });

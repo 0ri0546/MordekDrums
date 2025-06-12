@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Interface Admin</title>
-  <link rel="stylesheet" href="styles/admin.css">
+  <meta charset="UTF-8" />
+  <title>Admin JSON</title>
+  <style>
+    textarea {
+      width: 100%;
+      height: 400px;
+      font-family: monospace;
+    }
+
+    select,
+    button {
+      margin: 10px 0;
+    }
+  </style>
+  <link rel="stylesheet" href="/styles/admin.css">
 </head>
+
 <body>
-  <div class="admin-container">
-    <h1>Bienvenue dans l'interface admin</h1>
-    <p>Ici, tu pourras gérer du contenu, des vidéos, ou autres fonctions futures.</p>
-    <a href="/logout">Se déconnecter</a>
-  </div>
+  <h1>Édition de contenu JSON</h1>
+  <select id="section-select">
+    <option value="accueil">Accueil</option>
+    <option value="actus">Actus</option>
+    <option value="esport">Esport</option>
+  </select>
+  <button onclick="loadJson()">Charger</button>
+  <h2>Images disponibles</h2>
+  <div id="image-gallery"
+    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px;"></div>
+
+  <h2>Uploader une image</h2>
+  <form action="/upload-image" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required />
+    <button type="submit">Uploader</button>
+  </form>
+  <form onsubmit="saveJson(event)">
+    <textarea id="json-editor"></textarea>
+    <button type="submit">Enregistrer</button>
+  </form>
+
+  <div id="status"></div>
+  <button onclick="window.location.href='/logout'">Déconnexion</button>
+  <script src="admin.js"></script>
+
 </body>
+
 </html>
