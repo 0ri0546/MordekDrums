@@ -1,0 +1,55 @@
+#actus {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.actus-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.actus-box {
+  flex: 1 1 300px;
+  aspect-ratio: 1 / 1.5;
+  background-color: var(--bg-presentation-box);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.image-part {
+  flex: 1;
+  overflow: hidden;
+}
+
+.image-part img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.content-part {
+  flex: 1;
+  padding: 1rem;
+  background-color: var(--bg-box);
+}
+
+.actus-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: left;
+  margin-left: 200px;
+  color: var(--separation-part);
+}
+
+@media (max-width: 768px) {
+  .actus-box {
+    flex: 1 1 100%;
+  }
+}

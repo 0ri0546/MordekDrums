@@ -1,0 +1,116 @@
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  min-height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background-color: var(--colorOne);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+body.dark-theme {
+  background-color: var(--colorThree);
+  color: var(--colorOne);
+
+  --text-main-presentation-box: rgb(0, 0, 0);
+  --text-main-other: rgb(0, 0, 0);
+  --bg-presentation-box: rgb(251, 212, 16);
+  --border-presentation-box: rgb(251, 212, 16);
+  --bg-box: rgb(251, 212, 16);
+  --border-box: rgb(251, 212, 16);
+  --bg-hover-box: rgb(232, 195, 13);
+
+  --separation-part: rgb(0, 0, 0);
+  --answer: rgb(200, 200, 200);
+
+  --footer-bg: rgb(60, 60, 60);
+
+  --gradient-start: rgba(255, 255, 255, 0);
+  --gradient-end: rgba(255, 255, 255, 1);
+
+  --gradient-esport: linear-gradient(to right,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 10%,
+      rgba(255, 255, 255, 0.3) 25%,
+      rgba(255, 255, 255, 0.1) 35%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0.1) 65%,
+      rgba(255, 255, 255, 0.3) 75%,
+      rgba(255, 255, 255, 1) 90%,
+      rgba(255, 255, 255, 1) 100%);
+
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+}
+
+.part-separation {
+  width: 80%;
+  height: 1px;
+  background-color: var(--separation-part);
+  margin: 6em auto;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transform: scale(0.95);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#lang-select {
+  --dark: #28292c;
+  width: 100px;
+  height: 50px;
+  background-color: var(--dark);
+  color: var(--colorTwo);
+  border: 3px solid var(--dark);
+  border-radius: 20px;
+  padding: 0 12px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  box-sizing: border-box;
+}
+
+#lang-select:focus {
+  outline: none;
+}
+
+#lang-select option {
+  background-color: var(--dark);
+  color: var(--colorTwo);
+  font-size: 16px;
+}

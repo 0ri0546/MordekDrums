@@ -1,0 +1,18 @@
+#live {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  height: 640px;
+}
+
+#twitch-embed {
+  flex: 3;
+  height: 100%;
+}
+
+#twitch-chat {
+  flex: 1;
+  height: 100%;
+  border: none;
+  background-color: #000;
+}

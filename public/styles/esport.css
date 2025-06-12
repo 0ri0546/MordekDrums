@@ -1,0 +1,109 @@
+#esport {
+  padding: 60px 20px;
+  background-image: url('/assets/background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+#esport::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-esport);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.esport-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+}
+
+.esport-container a {
+  text-decoration: none;
+  display: grid;
+}
+
+.text-esport {
+  grid-column: 1 / -1;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--separation-part);
+}
+
+.player-card  {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+  width: 230px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-size: cover;
+  background-position: center;
+}
+
+.player-card:hover {
+  transform: scale(1.05);
+}
+
+.top-left        { grid-column: 1 / 2; grid-row: 2 / 3; }
+.middle-left     { grid-column: 1 / 2; grid-row: 3 / 4; }
+.bottom-left     { grid-column: 1 / 2; grid-row: 4 / 5; }
+.top-right       { grid-column: 3 / 4; grid-row: 2 / 3; }
+.middle-right    { grid-column: 3 / 4; grid-row: 3 / 4; }
+.bottom-right    { grid-column: 3 / 4; grid-row: 4 / 5; }
+
+.center-photo    { grid-column: 2 / 3; grid-row: 3 / 4; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .esport-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .player-card,
+  .center-photo {
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .text-esport {
+    font-size: 2rem;
+  }
+}

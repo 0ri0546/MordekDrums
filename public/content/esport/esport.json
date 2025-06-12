@@ -1,0 +1,37 @@
+[
+  {
+    "position": "top-left",
+    "link": "https://fortnitetracker.com/profile/all/MKD%20Grim",
+    "image": "assets/playerOne.webp"
+  },
+  {
+    "position": "middle-left",
+    "link": "https://fortnitetracker.com/profile/all/MKD-ONI",
+    "image": "assets/playerTwo.webp"
+  },
+  {
+    "position": "bottom-left",
+    "link": "#",
+    "image": "assets/playerThree.webp"
+  },
+  {
+    "position": "top-right",
+    "link": "#",
+    "image": "assets/playerOne.webp"
+  },
+  {
+    "position": "middle-right",
+    "link": "#",
+    "image": "assets/playerOne.webp"
+  },
+  {
+    "position": "bottom-right",
+    "link": "#",
+    "image": "assets/playerOne.webp"
+  },
+  {
+    "position": "center-photo",
+    "link": "https://fortnitetracker.com/profile/all/MordekDrums",
+    "image": "assets/playerFour.webp"
+  }
+]

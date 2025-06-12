@@ -1,0 +1,160 @@
+#accueil {
+  display: grid;
+  grid-template-areas:
+    "presentation presentation link-shop link-gear"
+    "presentation presentation video video";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.5rem;
+  padding: clamp(4em, 4em, 4em) clamp(0rem, 5vw, 5rem);
+}
+
+.presentation-box {
+  grid-area: presentation;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 0px solid var(--border-presentation-box);
+  border-radius: 0.5rem;
+  padding: 1em 3rem 1em 5em;
+  min-height: clamp(200px, 25vh, 400px);
+  background: var(--gradient-yellow-box);
+  color: var(--text-main-presentation-box);
+  font-size: clamp(0.5em, 1.5vw, 1.8em);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.photo {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 300px;
+  height: 400px;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 1;
+  background-image: url('/assets/mordekFirstPicture.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
+.title {
+  margin: 0;
+  padding-left: 0;
+  font-size: 64px;
+}
+
+.description {
+  margin: 1em 0 0 5em;
+}
+
+.link-to-workshop-box {
+  grid-area: link-shop;
+}
+
+.link-to-material-box {
+  grid-area: link-gear;
+
+}
+
+.link-to-material-box,
+.link-to-workshop-box {
+  border: 0px solid var(--border-box);
+  background-color: var(--bg-box);
+  color: var(--text-main-other);
+  border-radius: 2em;
+  padding: 1rem;
+  transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+  overflow: hidden;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  top: 0;
+  font-size: 30px;
+}
+
+.link-to-workshop-box:hover,
+.link-to-material-box:hover {
+  background-color: var(--bg-hover-box);
+  border-color: var(--bg-hover-box);
+  transform: scale(1.03);
+}
+
+.latest-video-box {
+  grid-area: video;
+  border: 2px solid var(--border-presentation-box);
+  background-color: var(--bg-presentation-box);
+  color: var(--text-main-other);
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  #accueil {
+    grid-template-areas:
+      "presentation"
+      "link-shop"
+      "link-gear"
+      "video";
+    grid-template-columns: 1fr;
+  }
+}
+
+.front-picture {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.front-picture video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.front-picture .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, var(--gradient-start) 70%, var(--gradient-end) 100%);
+  z-index: 1;
+}
+
+
+#video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16/9;
+  margin: auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  border: 0px solid #333;
+}

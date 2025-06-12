@@ -1,0 +1,77 @@
+#faq {
+  margin-top: 0;
+  padding-top: 0;
+
+  background-image: url('/assets/background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 200px !important;
+}
+
+#faq::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-esport);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.faq-title {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-left: 200px;
+  margin-bottom: 2rem;
+  color: var(--separation-part);
+  z-index: 2;
+}
+
+.faq-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  z-index: 2;
+}
+
+.faq-box {
+  background-color: var(--bg-presentation-box);
+  border-radius: 10px;
+  overflow: hidden;
+  width: calc(50% - 1rem);
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-question {
+  background-color: var(--primary-color);
+  padding: 1rem;
+  font-weight: bold;
+  color: var(--colorOne);
+}
+
+.faq-answer {
+  background-color: var(--answer);
+  padding: 1rem;
+  color: var(--text-main-other);
+}
+
+@media (max-width: 768px) {
+  .faq-container {
+    margin-left: 1rem;
+  }
+
+  .faq-box {
+    width: 100%;
+  }
+
+  .faq-title {
+    margin-left: 1rem;
+  }
+}

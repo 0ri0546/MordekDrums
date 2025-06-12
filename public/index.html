@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <title>MordekDrums - Gamer & Streamer</title>
+</head>
+
+<body>
+    <div id="loader">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="front-picture">
+        <video autoplay muted loop playsinline>
+            <source src="assets/headerVideo.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo HTML5.
+        </video>
+        <div class="overlay"></div>
+    </div>
+    <header>
+        <picture>
+            <source srcset="assets/logo.webp" type="image/webp" />
+            <img src="assets/logo.png" alt="Logo de MordekDrums" loading="lazy" />
+        </picture>
+
+        <nav class="navbar">
+            <div class="underline"></div>
+            <div class="underline"></div>
+            <div class="underline"></div>
+            <a href="#accueil" onclick="ul(0)" data-i18n="optionOne">Accueil</a>
+            <a href="#esport" onclick="ul(1)" data-i18n="optionTwo">E-sport</a>
+            <a href="#live" onclick="ul(2)" data-i18n="optionThree">Live</a>
+            <a href="#actus" onclick="ul(3)" data-i18n="optionFour">Actus</a>
+            <a href="#faq" onclick="ul(4)" data-i18n="optionFive">FAQ</a>
+            <a href="#contact" onclick="ul(5)" data-i18n="optionSix">Contact</a>
+        </nav>
+        <select id="lang-select" class="lang-select">
+            <option value="fr" data-i18n="fr">Français</option>
+            <option value="en" data-i18n="en">English</option>
+        </select>
+        <div class="toggle-switch">
+            <label class="switch-label">
+                <input type="checkbox" class="checkbox" aria-label="Toggle dark mode">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+    </header>
+    <div class="underheader">
+        <a href="https://www.youtube.com/@mordekdrumsgaming" target="_blank" rel="noopener noreferrer"
+            aria-label="Youtube">
+            <img src="assets/icons/youtube.svg" alt="YouTube">
+        </a>
+        <a href="https://x.com/i/flow/login?redirect_after_login=%2Fmordekdrums" target="_blank"
+            rel="noopener noreferrer" aria-label="X">
+            <img src="assets/icons/x.svg" alt="X">
+        </a>
+        <a href="https://www.instagram.com/mordekdrums/" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram">
+            <img src="assets/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.snapchat.com/add/mordekdrums?invite_id=ALREym5b&locale=fr_FR&share_id=ar_8PJDdRA-FsrvSe_JPLg&sid=c63a42275802485aa62dd562899fc21c"
+            target="_blank" rel="noopener noreferrer" aria-label="Snapchat">
+            <img src="assets/icons/snapchat.svg" alt="Snapchat">
+        </a>
+        <a href="https://discord.com/invite/CjvMHMTn3K" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+            <img src="assets/icons/discord.svg" alt="Discord">
+        </a>
+        <a href="https://www.twitch.tv/mordekdrums" target="_blank" rel="noopener noreferrer" aria-label="Twitch">
+            <img src="assets/icons/twitch.svg" alt="Twitch">
+        </a>
+        <a href="https://www.tiktok.com/@mordekdrums" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <img src="assets/icons/tiktok.svg" alt="Tiktok">
+        </a>
+        <a href="https://www.threads.com/@mordekdrums" target="_blank" rel="noopener noreferrer" aria-label="Thread">
+            <img src="assets/icons/thread.svg" alt="Thread">
+        </a>
+        <a href="https://www.facebook.com/MordekDrums" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <img src="assets/icons/facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://www.dailymotion.com/mordekdrums" target="_blank" rel="noopener noreferrer"
+            aria-label="Dailymotion">
+            <img src="assets/icons/dailymotion.svg" alt="Dailymotion">
+        </a>
+    </div>
+    <main>
+        <section id="accueil">
+            <div class="presentation-box fade-in">
+                <div class="photo"></div>
+                <div class="text">
+                    <h2 class="title"></h2>
+                    <p class="description" data-i18n="textPresentationBox"></p>
+                </div>
+            </div>
+            <a href="#" class="link-to-workshop-box fade-in" data-i18n="boutique"></a>
+            <a href="#" class="link-to-material-box fade-in" data-i18n="materiel"></a>
+            <div class="latest-video-box fade-in" id="video-container"></div>
+        </section>
+
+        <div class="part-separation"></div>
+        <section id="esport">
+            <div class="esport-container fade-in">
+                <div class="text-esport">E-sport</div>
+            </div>
+        </section>
+
+        <div class="part-separation"></div>
+        <section id="live">
+            <div id="twitch-embed"></div>
+            <iframe id="twitch-chat" src="https://www.twitch.tv/embed/mordekdrums/chat?parent=localhost" frameborder="0"
+                scrolling="no">
+            </iframe>
+        </section>
+        <div class="part-separation"></div>
+        <section id="actus">
+            <h2 class="actus-title" data-i18n="actualites">Actualités</h2>
+
+            <div class="actus-container fade-in">
+                <div class="actus-box">
+                    <div class="image-part">
+                        <img src="assets/background.webp" alt="Actu 1">
+                    </div>
+                    <div class="content-part">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="actus-box">
+                    <div class="image-part">
+                        <img src="assets/background.webp" alt="Actu 2">
+                    </div>
+                    <div class="content-part">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="actus-box">
+                    <div class="image-part">
+                        <img src="assets/background.webp" alt="Actu 3">
+                    </div>
+                    <div class="content-part">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="part-separation"></div>
+        <section id="faq">
+            <h2 class="faq-title">FAQ</h2>
+            <div class="faq-container fade-in">
+                <div class="faq-box">
+                    <div class="faq-question"></div>
+                    <div class="faq-answer"></div>
+                </div>
+                <div class="faq-box">
+                    <div class="faq-question"></div>
+                    <div class="faq-answer"></div>
+                </div>
+                <div class="faq-box">
+                    <div class="faq-question"></div>
+                    <div class="faq-answer"></div>
+                </div>
+                <div class="faq-box">
+                    <div class="faq-question"></div>
+                    <div class="faq-answer"></div>
+                </div>
+                <div class="faq-box">
+                    <div class="faq-question"></div>
+                    <div class="faq-answer"></div>
+                </div>
+                <div class="faq-box">
+                    <div class="faq-question"></div>
+                    <div class="faq-answer"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section id="contact">
+            <div class="contact-container">
+                <div class="logo-part">
+                    <img src="assets/logo.png" alt="Logo">
+                </div>
+                <div class="info-part">
+                    <a href="mailto:mordekdrums.contact@gmail.com" target="_blank" rel="noopener noreferrer"
+                        aria-label="Mail">mordekdrums.contact@gmail.com</a>
+                    <div class="contact-box-liens">
+                        <a href="https://www.youtube.com/@mordekdrumsgaming" target="_blank" rel="noopener noreferrer"
+                            aria-label="Youtube">
+                            <img src="assets/icons/youtube.svg" alt="YouTube">
+                        </a>
+                        <a href="https://x.com/i/flow/login?redirect_after_login=%2Fmordekdrums" target="_blank"
+                            rel="noopener noreferrer" aria-label="X">
+                            <img src="assets/icons/x.svg" alt="X">
+                        </a>
+                        <a href="https://www.instagram.com/mordekdrums/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram">
+                            <img src="assets/icons/instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="https://www.snapchat.com/add/mordekdrums?invite_id=ALREym5b&locale=fr_FR&share_id=ar_8PJDdRA-FsrvSe_JPLg&sid=c63a42275802485aa62dd562899fc21c"
+                            target="_blank" rel="noopener noreferrer" aria-label="Snapchat">
+                            <img src="assets/icons/snapchat.svg" alt="Snapchat">
+                        </a>
+                        <a href="https://discord.com/invite/CjvMHMTn3K" target="_blank" rel="noopener noreferrer"
+                            aria-label="Discord">
+                            <img src="assets/icons/discord.svg" alt="Discord">
+                        </a>
+                        <a href="https://www.twitch.tv/mordekdrums" target="_blank" rel="noopener noreferrer"
+                            aria-label="Twitch">
+                            <img src="assets/icons/twitch.svg" alt="Twitch">
+                        </a>
+
+                        <a href="https://www.tiktok.com/@mordekdrums" target="_blank" rel="noopener noreferrer"
+                            aria-label="TikTok">
+                            <img src="assets/icons/tiktok.svg" alt="Tiktok">
+                        </a>
+                        <a href="https://www.threads.com/@mordekdrums" target="_blank" rel="noopener noreferrer"
+                            aria-label="Thread">
+                            <img src="assets/icons/thread.svg" alt="Thread">
+                        </a>
+                        <a href="https://www.facebook.com/MordekDrums" target="_blank" rel="noopener noreferrer"
+                            aria-label="Facebook">
+                            <img src="assets/icons/facebook.svg" alt="Facebook">
+                        </a>
+                        <a></a>
+                        <a href="https://www.dailymotion.com/mordekdrums" target="_blank" rel="noopener noreferrer"
+            aria-label="Dailymotion">
+            <img src="assets/icons/dailymotion.svg" alt="Dailymotion">
+        </a>
+                        <span class="ghost"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <script  src="scripts/translations.js" defer></script>
+    <script src="content/actus/load-actus.js" defer></script>
+    <script src="content/faq/load-faq.js" defer></script>
+    <script src="content/esport/load-esport.js" defer></script>
+    <script src="content/accueil/load-accueil.js" defer></script>
+
+    <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+
+    <script type="module" src="script.js" defer></script>
+</body>
+
+</html>

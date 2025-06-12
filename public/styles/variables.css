@@ -1,0 +1,41 @@
+:root {
+  --underline-height: .5em;
+  --transition-duration: .5s;
+  --colorOne: rgba(0, 0, 0);
+  --colorTwo: rgba(251, 212, 16);
+  --colorThree: rgba(255, 255, 255);
+  --colorFour: rgba(30, 30, 30);
+
+  --bg-main: rgb(255, 255, 255);
+
+  --text-main-presentation-box: rgb(0, 0, 0);
+  --text-main-other: rgb(0, 0, 0);
+  --bg-presentation-box: rgb(251, 212, 16);
+  --border-presentation-box: rgb(251, 212, 16);
+  --bg-box: rgb(251, 212, 16);
+  --border-box: rgb(251, 212, 16);
+
+  --separation-part: rgb(251, 212, 16);
+  --answer: rgb(150, 150, 150);
+
+  --footer-bg: rgb(60, 60, 60);
+
+  --bg-hover-box: rgb(232, 195, 13);
+
+  --gradient-start: rgba(0, 0, 0, 0);
+  --gradient-end: rgba(0, 0, 0, 1);
+
+  --gradient-esport: linear-gradient(to right,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 10%,
+      rgba(0, 0, 0, 0.3) 25%,
+      rgba(0, 0, 0, 0.1) 35%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.1) 65%,
+      rgba(0, 0, 0, 0.3) 75%,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 1) 100%
+  );
+
+  --gradient-yellow-box: linear-gradient(to bottom, #f9e493, #fbd410, #f9b600);
+}
