@@ -120,8 +120,7 @@ async function loadImages() {
                     }, 3000);
                 });
             };
-
-
+            
             container.appendChild(img);
             container.appendChild(label);
             container.appendChild(input);

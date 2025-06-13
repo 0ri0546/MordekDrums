@@ -21,24 +21,24 @@
 
 <body>
   <h1>Éditer le site !</h1>
+  <h2>Images disponibles</h2>
+  <button id="refresh-images" style="margin: 10px; padding: 5px 10px; font-size: 14px;">
+    🔄 Rafraîchir les images
+  </button>
+  <div id="image-gallery"
+  style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px;"></div>
+  
+  <h2>Uploader une image</h2>
+  <form action="/upload-image" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required />
+    <button type="submit">Uploader</button>
+  </form>
   <select id="section-select">
     <option value="accueil">Accueil</option>
     <option value="actus">Actus</option>
     <option value="esport">Esport</option>
   </select>
   <button onclick="loadJson()">Charger</button>
-  <h2>Images disponibles</h2>
-  <button id="refresh-images" style="margin: 10px; padding: 5px 10px; font-size: 14px;">
-    🔄 Rafraîchir les images
-  </button>
-  <div id="image-gallery"
-    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px;"></div>
-
-  <h2>Uploader une image</h2>
-  <form action="/upload-image" method="POST" enctype="multipart/form-data">
-    <input type="file" name="image" accept="image/*" required />
-    <button type="submit">Uploader</button>
-  </form>
   <form onsubmit="saveJson(event)">
     <textarea id="json-editor"></textarea>
     <button type="submit">Enregistrer</button>
