@@ -62,7 +62,7 @@ async function loadImages() {
             input.style.marginTop = '5px';
             input.style.display = 'block';
             input.style.fontSize = '14px';
-            input.style.width = '200px';
+            input.style.width = '100%';
             input.style.padding = '2px';
 
             const renameBtn = document.createElement('button');
@@ -120,7 +120,7 @@ async function loadImages() {
                     }, 3000);
                 });
             };
-            
+
             container.appendChild(img);
             container.appendChild(label);
             container.appendChild(input);
