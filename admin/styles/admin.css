@@ -8,7 +8,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f9f9f9;
   color: #333;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
   line-height: 1.6;
@@ -109,4 +109,8 @@ textarea:focus {
 
 form {
   margin-top: 20px;
+}
+
+.json-key {
+  color: blue;
 }

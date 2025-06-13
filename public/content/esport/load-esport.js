@@ -1,4 +1,3 @@
-// load-esport.js (par exemple)
 document.addEventListener("DOMContentLoaded", () => {
   fetch('content/esport/esport.json')
     .then(response => response.json())

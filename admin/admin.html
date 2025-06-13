@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <h1>Édition de contenu JSON</h1>
+  <h1>Éditer le site !</h1>
   <select id="section-select">
     <option value="accueil">Accueil</option>
     <option value="actus">Actus</option>
@@ -28,6 +28,9 @@
   </select>
   <button onclick="loadJson()">Charger</button>
   <h2>Images disponibles</h2>
+  <button id="refresh-images" style="margin: 10px; padding: 5px 10px; font-size: 14px;">
+    🔄 Rafraîchir les images
+  </button>
   <div id="image-gallery"
     style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px;"></div>
 
@@ -40,6 +43,15 @@
     <textarea id="json-editor"></textarea>
     <button type="submit">Enregistrer</button>
   </form>
+
+  <h2>Exemple JSON (copier-coller si besoin)</h2>
+  <select id="example-section-select">
+    <option value="accueil">Accueil</option>
+    <option value="actus">Actus</option>
+    <option value="esport">Esport</option>
+  </select>
+  <pre id="json-example" class="json-example"
+    style="width:100%; height: 800px; overflow: auto; background:#f0f0f0; padding:10px; font-family: monospace;"></pre>
 
   <div id="status"></div>
   <button onclick="window.location.href='/logout'">Déconnexion</button>

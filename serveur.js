@@ -140,7 +140,6 @@ app.listen(port, () => {
 
 
 //--------------------Modification .json-----------------------
-
 app.get('/admin/json/:section', (req, res) => {
   if (!req.session.loggedIn) return res.status(401).send('Non autorisé');
 
@@ -186,7 +185,6 @@ app.post('/admin/json/:section', express.json(), (req, res) => {
 //-----import image---------
 const multer = require('multer');
 
-// Dossier de destination
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(__dirname, 'public', 'assets'));
@@ -206,3 +204,46 @@ app.post('/upload-image', upload.single('image'), (req, res) => {
   const imageUrl = `/uploads/${req.file.filename}`;
   res.send(`✅ Image uploadée avec succès : <a href="${imageUrl}">${imageUrl}</a>`);
 });
+
+app.delete('/delete-image/:filename', (req, res) => {
+  if (!req.session.loggedIn) return res.status(403).send('Non autorisé');
+
+  const filename = req.params.filename;
+  const filePath = path.join(__dirname, 'public', 'assets', filename);
+
+  fs.unlink(filePath, (err) => {
+    if (err) {
+      console.error('Erreur suppression image :', err);
+      return res.status(500).send('Erreur suppression image');
+    }
+    res.send('Image supprimée');
+  });
+});
+
+app.post('/rename-image', express.json(), (req, res) => {
+  if (!req.session.loggedIn) return res.status(403).send('Non autorisé');
+
+  const { oldName, newName } = req.body;
+  const dir = path.join(__dirname, 'public', 'assets');
+
+  const oldPath = path.join(dir, oldName);
+  const newPath = path.join(dir, newName);
+
+  if (!fs.existsSync(oldPath)) {
+    return res.status(404).send('Image introuvable.');
+  }
+
+  if (fs.existsSync(newPath)) {
+    return res.status(400).send('Ce nom existe déjà.');
+  }
+
+  fs.rename(oldPath, newPath, (err) => {
+    if (err) {
+      console.error('Erreur renommage :', err);
+      return res.status(500).send('Erreur serveur.');
+    }
+
+    res.send('Image renommée.');
+  });
+});
+//-----import image---------
