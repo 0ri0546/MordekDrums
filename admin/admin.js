@@ -54,20 +54,20 @@ async function loadImages() {
 
             const label = document.createElement('div');
             label.textContent = file;
-            label.style.fontSize = '5px';
+            label.style.fontSize = '14px';
 
             const input = document.createElement('input');
             input.type = 'text';
             input.placeholder = 'Nouveau nom...';
             input.style.marginTop = '5px';
             input.style.display = 'block';
-            input.style.fontSize = '6px';
+            input.style.fontSize = '14px';
             input.style.width = '200px';
             input.style.padding = '2px';
 
             const renameBtn = document.createElement('button');
             renameBtn.textContent = '✏️ Renommer';
-            renameBtn.style.fontSize = '5px';
+            renameBtn.style.fontSize = '14px';
             renameBtn.onclick = () => {
                 const newName = input.value.trim();
                 if (newName && newName !== file) {
@@ -81,7 +81,7 @@ async function loadImages() {
 
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = '🗑 Supprimer';
-            deleteBtn.style.fontSize = '10px';
+            deleteBtn.style.fontSize = '14px';
             deleteBtn.onclick = () => {
                 if (confirm(`Supprimer l'image "${file}" ?`)) {
                     deleteImage(file);
@@ -89,7 +89,7 @@ async function loadImages() {
             };
 
             label.textContent = file;
-            label.style.fontSize = '5px';
+            label.style.fontSize = '14px';
             label.style.cursor = 'pointer';
             label.style.position = 'relative'; 
             label.onclick = () => {
@@ -103,7 +103,7 @@ async function loadImages() {
                     bubble.style.backgroundColor = '#333';
                     bubble.style.color = 'white';
                     bubble.style.padding = '2px 6px';
-                    bubble.style.fontSize = '10px';
+                    bubble.style.fontSize = '14px';
                     bubble.style.borderRadius = '4px';
                     bubble.style.zIndex = '10';
                     bubble.style.opacity = '0';
