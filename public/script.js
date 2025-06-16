@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //------------------------------------video-ytb----------------------------------------
 window.addEventListener('load', () => {
-  fetch('http://localhost:3000/latest-video/UCTmq7IPbdGEWP-Q3wgl4f5g')
+  fetch('/latest-video/UCTmq7IPbdGEWP-Q3wgl4f5g')
     .then(res => res.json())
     .then(data => {
       const videoId = data.videoId;
