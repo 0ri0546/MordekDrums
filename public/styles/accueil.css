@@ -14,8 +14,8 @@
   display: flex;
   flex-direction: column;
   border: none;
-  border-radius: 0.5rem;
-  padding: 1em 3rem 1em 5em;
+  border-radius: 20px;
+  padding: 1em 2em;
   min-height: clamp(50px, 20vh, 200px);
   background: var(--gradient-yellow-box);
   color: var(--text-main-presentation-box);
@@ -33,12 +33,13 @@
 .title {
   margin: 0;
   padding-left: 0;
-  font-size: clamp(2rem, 4vw, 64px);
+  font-size: clamp(1.5rem, 2.7vw, 3.3rem) !important;
+  font-weight: bold;
 }
 
 .description {
   margin: 1em clamp(0, 5vw, 5em) 0 clamp(0, 5vw, 5em);
-  font-size: clamp(0.5rem, 1.5vw, 1.5rem);
+  font-size: clamp(1rem, 1.8vw, 2.5rem);
 }
 
 .link-to-workshop-box {
@@ -55,7 +56,7 @@
   border: 0px solid var(--border-box);
   background-color: var(--bg-box);
   color: var(--text-main-other);
-  border-radius: 2em;
+  border-radius: 20px;
   padding: 0.5rem;
   transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
   overflow: hidden;
@@ -64,7 +65,7 @@
   justify-content: center;
   top: 0;
   font-size: clamp(1rem, 3vw, 30px);
-  font-weight: 1000px;
+  font-weight: bold;
 }
 
 .link-to-workshop-box:hover,
@@ -79,7 +80,7 @@
   border: 2px solid var(--border-presentation-box);
   background-color: var(--bg-presentation-box);
   color: var(--text-main-other);
-  border-radius: 1rem;
+  border-radius: 20px;
   padding: 1rem;
   text-align: center;
 
@@ -150,7 +151,6 @@
 
   .presentation-box {
     padding: 1rem 1rem 2rem 1rem;
-    font-size: 1rem;
   }
 
   .text {
@@ -159,8 +159,7 @@
   }
 
   .title {
-    font-size: 2rem;
-    padding: 0;
+    font-size: clamp(2rem, 3.6vw, 4rem) !important;
   }
 
   .description {
@@ -172,7 +171,7 @@
     font-size: clamp(0.7rem, 3vw, 1rem);
     padding: 0.5rem ;
     margin-bottom: 0rem;
-    font-weight: 700px;
+    font-weight: bold;
   }
 
   .latest-video-box {
