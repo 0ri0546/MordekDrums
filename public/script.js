@@ -25,6 +25,18 @@ links.forEach((link, index) => {
 
 ul(activeIndex);
 
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.getElementById("burger-menu");
+  const navbar = document.querySelector("nav.navbar");
+
+  if (burger && navbar) {
+    burger.addEventListener("click", () => {
+      navbar.classList.toggle("open");
+    });
+  }
+});
+
+
 //------------------------------------padding-video----------------------------------------
 function adjustMainPadding() {
   const header = document.querySelector('header');
