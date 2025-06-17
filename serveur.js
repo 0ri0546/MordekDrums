@@ -154,23 +154,16 @@ app.get('/admin/json/:section', (req, res) => {
   res.type('application/json').send(content);
 });
 
+const { DateTime } = require('luxon');
+
 app.post('/admin/json/:section', express.json(), (req, res) => {
   if (!req.session.loggedIn) return res.status(401).send('Non autorisé');
 
   const section = req.params.section;
   const filePath = path.join(__dirname, 'public', 'content', section, `${section}.json`);
 
-  const now = new Date();
-
-  const day = String(now.getDate()).padStart(2, '0');
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  const year = now.getFullYear();
-
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-  const seconds = String(now.getSeconds()).padStart(2, '0');
-
-  const formattedDate = `${day}/${month}/${year} à ${hours}:${minutes}:${seconds}`;
+  const now = DateTime.now().setZone('Europe/Paris');
+  const formattedDate = now.toFormat("dd/MM/yyyy 'à' HH:mm:ss");
 
   try {
     const jsonData = JSON.stringify(req.body, null, 2);

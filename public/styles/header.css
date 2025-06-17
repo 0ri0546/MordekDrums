@@ -51,7 +51,7 @@ body {
   text-align: center;
   cursor: pointer;
   color: var(--colorTwo);
-  text-shadow: 0.5px 0.5px 0 rgba(218, 172, 9);
+  font-weight: bold;
   text-decoration: none;
   width: auto;
   white-space: nowrap;
@@ -102,7 +102,7 @@ header img {
 }
 
 picture img {
-  max-height: 80px;
+  max-height: auto;
   height: auto;
   width: auto;
   transition: transform 0.3s ease;
@@ -226,6 +226,10 @@ nav.navbar {
   overflow: hidden;
 }
 
+.lang-select {
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
   header {
     overflow-x: hidden;
@@ -251,7 +255,8 @@ nav.navbar {
 
   .navbar a {
     display: block;
-    padding: 1em;
+    padding: 0.5em;
+    font-size: 2em !important;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
@@ -261,12 +266,6 @@ nav.navbar {
 
   picture {
     margin-right: 0;
-  }
-
-  .lang-select {
-    max-width: 100%;
-    flex-shrink: 1;
-    font-size: clamp(9px, 2vw, 10px) !important;
   }
 
   .toggle-switch {
@@ -282,6 +281,9 @@ nav.navbar {
     max-width: 120px;
     width: 100%;
     box-sizing: border-box;
+    font-weight: bold;
+    flex-shrink: 1;
+    font-size: clamp(9px, 2vw, 10px) !important;
   }
 
   select.lang-select {
