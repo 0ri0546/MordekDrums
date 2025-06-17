@@ -38,14 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //------------------------------------padding-video----------------------------------------
-function adjustMainPadding() {
-  const header = document.querySelector('header');
-  const underheader = document.querySelector('.underheader');
-  if (!header || !underheader) return;
-
-  underheader.style.top = header.offsetHeight + 'px';
-}
-
 function debounce(fn, delay) {
   let timeout;
   return function (...args) {
@@ -56,12 +48,10 @@ function debounce(fn, delay) {
 
 const debouncedResizeHandler = debounce(() => {
   adjustScrollMarginTop();
-  adjustMainPadding();
   resizeText();
 }, 150);
 
 window.addEventListener('DOMContentLoaded', () => {
-  adjustMainPadding();
   adjustScrollMarginTop();
 });
 
@@ -71,20 +61,17 @@ if (window.visualViewport) {
   window.visualViewport.addEventListener('resize', debouncedResizeHandler);
 }
 
-//------------------------------------header/underheader-scroll----------------------------------------
+//------------------------------------header/-scroll----------------------------------------
 let lastScrollY = window.scrollY;
 const header = document.querySelector('header');
-const underheader = document.querySelector('.underheader');
 
 window.addEventListener('scroll', () => {
   const currentScroll = window.scrollY;
 
   if (currentScroll > lastScrollY) {
     header.style.transform = 'translateY(-100%)';
-    underheader.style.transform = 'translateY(-300%)';
   } else {
     header.style.transform = 'translateY(0)';
-    underheader.style.transform = 'translateY(0)';
   }
 
   lastScrollY = currentScroll;
@@ -93,7 +80,6 @@ window.addEventListener('scroll', () => {
 document.addEventListener('mousemove', (e) => {
   if (e.clientY < 50) {
     header.style.transform = 'translateY(0)';
-    underheader.style.transform = 'translateY(0)';
   }
 });
 
@@ -101,7 +87,6 @@ document.addEventListener('mousemove', (e) => {
 function resizeText() {
   const toggleSwitch = document.querySelector('.toggle-switch');
   const langSelect = document.querySelector('.lang-select');
-  const underheader = document.querySelector('.underheader');
   const minWidth = 1200;
   const maxWidth = 1920;
 
@@ -143,21 +128,11 @@ function resizeText() {
     pictureOne.style.display = zoomLevel >= 2 ? "none" : "inline";
   }
 
-  document.querySelectorAll(".underheader a svg").forEach(svg => {
-    const baseSize = 28;
-    const newSize = (fontSize / maxFontSize) * baseSize;
-    svg.style.width = `${newSize}px`;
-    svg.style.height = `${newSize}px`;
-    svg.style.display = zoomLevel >= 2 ? "none" : "inline";
-  });
   if (toggleSwitch) {
     toggleSwitch.style.display = zoomLevel > 1.5 ? "none" : "inline";
   }
   if (langSelect) {
     langSelect.style.display = zoomLevel > 1.5 ? "none" : "inline";
-  }
-  if (underheader) {
-    underheader.style.display = zoomLevel >= 2 ? "none" : "flex";
   }
 }
 
