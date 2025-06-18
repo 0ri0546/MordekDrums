@@ -295,4 +295,19 @@ nav.navbar {
     white-space: nowrap;
     font-size: 0.9em;
   }
+
+  .header-bottom {
+  gap: 0.25em;
+  padding: 0.2em 0.5em; 
+}
+
+.header-bottom img {
+  width: 18px;
+  height: 18px;
+}
+
+}
+
+* {
+  outline: 1px solid red;
 }
