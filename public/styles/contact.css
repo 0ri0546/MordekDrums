@@ -2,7 +2,7 @@ footer {
   background-color: var(--footer-bg);
   color: var(--text-main-other);
   width: 100%;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem;
   overflow: hidden;
   text-decoration: none;
 }
@@ -11,7 +11,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   gap: 2rem;
   flex-wrap: wrap;
@@ -47,17 +47,12 @@ footer {
   flex: none;
   justify-content: center;
   align-items: center;
-}
-
-.contact-box h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: var(--primary-color, #00aaff);
+  font-size: clamp(14px, 4vw, 18px) !important;
 }
 
 #contact a {
   color: var(--primary-color, var(--colorTwo));
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 #contact a:hover {
@@ -86,7 +81,15 @@ footer {
   gap: 0.5rem;
 }
 
+.link {
+text-decoration: underline;
+}
+
 @media (max-width: 1080px) {
+  footer {
+  padding: 1rem 1rem;
+}
+
   #contact .contact-container {
     flex-direction: column;
     align-items: center;
@@ -100,5 +103,6 @@ footer {
     min-width: auto;
     flex: none;
     max-width: 100%;
+    font-size: clamp(14px, 4vw, 18px) !important;
   }
 }

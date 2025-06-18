@@ -194,14 +194,15 @@ a:hover img {
   transition: 0.3s;
 }
 
-.checkbox:checked~.slider::before {
-  -webkit-transform: translateX(50px);
-  -ms-transform: translateX(50px);
+.checkbox:checked ~ .slider::before {
+  -webkit-transform: translateX(clamp(26px, 7vw, 40px));
+  -ms-transform: translateX(clamp(26px, 7vw, 40px));
   transform: translateX(clamp(26px, 7vw, 40px));
   background-color: var(--dark);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
 
 /* Menu hamburger pour mobile */
 .burger {
@@ -306,8 +307,4 @@ nav.navbar {
   height: 18px;
 }
 
-}
-
-* {
-  outline: 1px solid red;
 }

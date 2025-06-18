@@ -280,3 +280,52 @@ updateLanguage(defaultLang);
 document.getElementById('lang-select').addEventListener('change', (e) => {
   updateLanguage(e.target.value);
 });
+
+//----------caroussel actus------------
+const container = document.querySelector('.actus-container');
+const btnLeft = document.querySelector('.carousel-arrow.left');
+const btnRight = document.querySelector('.carousel-arrow.right');
+
+const scrollAmount = container.offsetWidth / 3 + 20;
+
+btnLeft.addEventListener('click', () => {
+  container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+});
+
+btnRight.addEventListener('click', () => {
+  container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.actus-container');
+  const leftArrow = document.querySelector('.carousel-arrow.left');
+  const rightArrow = document.querySelector('.carousel-arrow.right');
+
+  function updateArrows() {
+    if (container.scrollLeft <= 0) {
+      leftArrow.style.opacity = '0.3';
+      leftArrow.style.pointerEvents = 'none';
+    } else {
+      leftArrow.style.opacity = '1';
+      leftArrow.style.pointerEvents = 'auto';
+    }
+
+    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
+      rightArrow.style.opacity = '0.3';
+      rightArrow.style.pointerEvents = 'none';
+    } else {
+      rightArrow.style.opacity = '1';
+      rightArrow.style.pointerEvents = 'auto';
+    }
+  }
+  updateArrows();
+  container.addEventListener('scroll', updateArrows);
+
+  leftArrow.addEventListener('click', () => {
+    container.scrollBy({ left: -container.clientWidth / 3 - 16, behavior: 'smooth' });
+  });
+
+  rightArrow.addEventListener('click', () => {
+    container.scrollBy({ left: container.clientWidth / 3 + 16, behavior: 'smooth' });
+  });
+});

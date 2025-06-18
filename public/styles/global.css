@@ -156,3 +156,9 @@ main {
     transform: translateY(20px) scale(0.97);
   }
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

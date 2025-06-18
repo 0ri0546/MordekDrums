@@ -113,10 +113,10 @@
 
 @media screen and (max-width: 768px) {
   .player-card {
-    width: clamp(70px, 17vw, 100px);
-    height: clamp(20px, 7vw, 40px);
-    padding: clamp(15px, 3vw, 15px);
-  }
+  width: clamp(50px, 12vw, 80px);
+  height: clamp(15px, 5vw, 30px);
+  padding: clamp(8px, 2vw, 12px);
+}
   .esport-container {
     margin: 0px 3em;
   }

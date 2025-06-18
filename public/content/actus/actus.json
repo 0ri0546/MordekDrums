@@ -13,5 +13,15 @@
     "title": "Je test un nouveau jeu !",
     "text": "Ce soir live un peu particulier, exclusive sur Twitch, on test dune awakening :). Sûrement pas à la batterie :).",
     "image": "assets/background.webp"
+  },
+  {
+    "title": "actus4",
+    "text": "actus4 text",
+    "image": "assets/background.webp"
+  },
+  {
+    "title": "actus5",
+    "text": "actus5 text",
+    "image": "assets/background.webp"
   }
 ]
