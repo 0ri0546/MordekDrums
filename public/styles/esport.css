@@ -111,11 +111,11 @@
   grid-row: 3 / 4;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .player-card {
-  width: clamp(70px, 14vw, 100px);
-  height: clamp(30px, 7vw, 50px);
-  padding: clamp(8px, 2vw, 12px);
+  width: clamp(80px, 25vw, 100px);
+  height: clamp(35px, 15vw, 50px);
+  padding: clamp(6px, 2vw, 12px);
 }
   .esport-container {
     margin: 0px 3em;
