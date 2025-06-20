@@ -1,5 +1,5 @@
 #esport {
-  padding: 60px 0px;
+  padding: 40px 0px;
   background-image: url('/assets/background.webp');
   background-size: cover;
   background-position: center;
@@ -119,5 +119,9 @@
 }
   .esport-container {
     margin: 0px 3em;
+  }
+
+  .text-esport {
+    font-size: clamp(1.4rem, 4vw, 2rem);
   }
 }
