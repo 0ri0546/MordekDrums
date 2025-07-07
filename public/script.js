@@ -281,7 +281,7 @@ document.getElementById('lang-select').addEventListener('change', (e) => {
   updateLanguage(e.target.value);
 });
 
-//----------caroussel actus------------
+//----------caroussel actus-------------
 const container = document.querySelector('.actus-container');
 const btnLeft = document.querySelector('.carousel-arrow.left');
 const btnRight = document.querySelector('.carousel-arrow.right');
