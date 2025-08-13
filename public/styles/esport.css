@@ -46,7 +46,10 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: var(--separation-part);
+  color: rgb(251, 212, 16);
+  text-shadow: 0 0 10px rgb(0, 0, 0),
+               0 0 20px rgb(0, 0, 0),
+               0 0 30px rgb(0, 0, 0);
 }
 
 .player-card {
@@ -63,6 +66,10 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-size: cover;
   background-position: center;
+  box-shadow: 0 0 10px rgb(0, 0, 0),
+               0 0 20px rgb(0, 0, 0),
+               0 0 30px rgb(0, 0, 0);
+  
 }
 
 .player-card img {

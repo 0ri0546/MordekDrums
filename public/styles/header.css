@@ -144,7 +144,7 @@ a:hover img {
 
 .toggle-switch {
   position: relative;
-  width: clamp(80px, 15vw, 120px);
+  width: clamp(40px, 7vw, 60px);
   height: clamp(30px, 6vw, 40px);
   margin-left: auto;
   margin-right: clamp(0.5rem, 2vw, 1.5rem);
@@ -156,55 +156,52 @@ a:hover img {
   width: 100%;
   height: 100%;
   background-color: var(--dark);
-  border-radius: 25px;
+  border-radius: 15px;
   cursor: pointer;
-  border: 3px solid var(--dark);
+  border: 1px solid var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .checkbox {
-  position: absolute;
   display: none;
 }
 
 .slider {
-  position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 25px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.checkbox:checked~.slider {
-  background-color: var(--colorThree);
+  border-radius: 15px;
+  background-color: var(--colorTwo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
 .slider::before {
   content: "";
-  position: absolute;
-  top: clamp(6px, 1vw, 10px);
-  left: clamp(6px, 1vw, 10px);
+  display: block;
   width: clamp(18px, 4vw, 22px);
   height: clamp(18px, 4vw, 22px);
   border-radius: 50%;
-  -webkit-box-shadow: inset 12px -4px 0px 0px var(--colorThree);
-  box-shadow: inset 12px -4px 0px 0px var(--colorTwo);
-  background-color: var(--dark);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  background-color: var(--colorThree);
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
+  transition: all 0.3s ease;
 }
 
-.checkbox:checked ~ .slider::before {
-  -webkit-transform: translateX(clamp(26px, 7vw, 40px));
-  -ms-transform: translateX(clamp(26px, 7vw, 40px));
-  transform: translateX(clamp(26px, 7vw, 40px));
-  background-color: var(--dark);
-  -webkit-box-shadow: none;
-  box-shadow: none;
+.checkbox:checked+.slider {
+  background-color: var(--colorThree);
 }
 
+.checkbox:checked+.slider::before {
+  width: clamp(18px, 4vw, 22px);
+  height: clamp(18px, 4vw, 22px);
+  border-radius: 50%;
+  background-color: var(--dark);
+  box-shadow: inset -6px 0px 0px var(--colorTwo);
+}
 
-/* Menu hamburger pour mobile */
 .burger {
   display: none;
   flex-direction: column;
@@ -271,7 +268,7 @@ nav.navbar {
 
   .toggle-switch {
     position: relative;
-    width: clamp(180px, 15vw, 230px) !important;
+    width: clamp(90px, 7vw, 115px) !important;
     height: clamp(30px, 6vw, 40px);
     --dark: #28292c;
   }
@@ -298,13 +295,13 @@ nav.navbar {
   }
 
   .header-bottom {
-  gap: 0.25em;
-  padding: 0.2em 0.5em; 
-}
+    gap: 0.25em;
+    padding: 0.2em 0.5em;
+  }
 
-.header-bottom img {
-  width: 18px;
-  height: 18px;
-}
+  .header-bottom img {
+    width: 18px;
+    height: 18px;
+  }
 
 }

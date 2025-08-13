@@ -38,4 +38,6 @@
   );
 
   --gradient-yellow-box: linear-gradient(to bottom, #f9e493, #fbd410, #f9b600);
+  
+  --bg-esport-text: rgb(0, 0, 0, 0.5);
 }

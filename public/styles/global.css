@@ -55,6 +55,8 @@ body.dark-theme {
       rgba(255, 255, 255, 1) 90%,
       rgba(255, 255, 255, 1) 100%);
 
+  --bg-esport-text: rgb(251, 212, 16, 0.5);
+
 }
 
 body::-webkit-scrollbar {

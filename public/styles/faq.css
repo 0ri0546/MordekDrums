@@ -28,8 +28,11 @@
   margin: 0 auto 2rem;
   max-width: 90%;
   text-align: center;
-  color: var(--separation-part);
+  color: rgb(251, 212, 16);;
   z-index: 2;
+  text-shadow: 0 0 10px rgb(0, 0, 0),
+               0 0 20px rgb(0, 0, 0),
+               0 0 30px rgb(0, 0, 0);
 }
 
 .faq-container {
